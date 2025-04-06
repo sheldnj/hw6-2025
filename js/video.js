@@ -1,4 +1,5 @@
 var video;
+var isFirstClicked = true;
 // First loads
 window.addEventListener("load", function() {
 	console.log("Good job opening the window")
@@ -13,8 +14,11 @@ document.getElementById("play").addEventListener("click", function() {
 	console.log("Play Video");
 	video = document.getElementById("player1");
 	video.play();
-	let volumeTxt = document.getElementById("volume");
-	volumeTxt.textContent = "100%";
+	if (isFirstClicked){
+		let volumeTxt = document.getElementById("volume");
+		volumeTxt.textContent = "100%";
+		isFirstClicked = false;
+	}
 });
 // pause video
 document.getElementById("pause").addEventListener("click", function() {
