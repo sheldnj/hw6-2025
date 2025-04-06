@@ -13,6 +13,8 @@ document.getElementById("play").addEventListener("click", function() {
 	console.log("Play Video");
 	video = document.getElementById("player1");
 	video.play();
+	let volumeTxt = document.getElementById("volume");
+	volumeTxt.textContent = "100%";
 });
 // pause video
 document.getElementById("pause").addEventListener("click", function() {
@@ -65,20 +67,20 @@ document.getElementById("slider").addEventListener("input", function(){
 	video = document.getElementById("player1");
 	let volSlider = document.getElementById("slider").value / 100;
 	video.volume = volSlider;
-	console.log("The current value is " + volSlider); 
+	console.log("The current value is " + volSlider);
+	let volumeTxt = document.getElementById("volume");
+	volumeTxt.textContent = (volSlider * 100) + "%"; 
 
 });
 
 //old school
 document.getElementById("vintage").addEventListener("click", function(){
-	video = document.getElementById("player1");
-	video.style.filter = "grayscale(100%)";
+	document.getElementById("player1").classList.add("oldSchool");
 
 });
 
 //original 
 document.getElementById("orig").addEventListener("click", function(){
-	video = document.getElementById("player1");
-	video.style.filter = "grayscale(0%)";
+	document.getElementById("player1").classList.remove("oldSchool");
 
 });
